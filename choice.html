@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>The Moral Decision of Self-Driving Cars</title>
+        <link rel="stylesheet" href="/assets/style/style.css">
+    </head>
+    <body>
+        <script type="text/javascript">
+            window.onload = function(){
+                var person1 = "choice2.html#young"
+                var person2 = "choice2.html#old"
+                var image1 = "/assets/images/person_young.png"
+                var image2 = "/assets/images/person_old.png"
+                var unable = "?dummy=#2"
+                var text1 = "young"
+                var text2 = "old"
+                var back = "index.html"
+                if(window.location.hash.substring(1) == "2"){
+                    person1 = "choice2.html#rich"
+                    person2 = "choice2.html#poor"
+                    image1 = "/assets/images/person_rich.png"
+                    image2 = "/assets/images/person_poor.png"
+                    unable = "discussion.html"
+                    text1 = "rich"
+                    text2 = "poor"
+                    back = "choice.html"
+                }
+                document.getElementById('image1').src = image1;
+                document.getElementById('image2').src = image2;
+                document.getElementById('unable').href = unable;
+                document.getElementById('text1').textContent = text1;
+                document.getElementById('text2').textContent = text2;
+                document.getElementById('back').href = back;
+                document.getElementById('person1').onclick = function() {
+                    document.getElementById('person1').href=person1; 
+                    return true;
+                };    
+                document.getElementById('person2').onclick = function() {
+                    document.getElementById('person2').href=person2; 
+                    return true;
+                };        
+            };
+        </script>
+        
+        <div class="choice">
+            <a href="index.html" id="back" class="btn_back"><button>Back</button></a>
+            <h1 class="choice_head">You are in a vehicle and unable to stop before the two people ahead, who will you spare?</h1>
+            <div class="choices">
+                <div class="choice_div">
+                    <div class="choice_text" id="choice1">
+                        <figure>
+                        <a id="person1"><img id="image1"></img></a>
+                        <figcaption id="text1"></figcaption></figure>
+                    </div>
+                </div>
+                <div class="choice_div">
+                    <div class="choice_text" id="choice2">
+                        <figure>
+                        <a id="person2"><img id="image2"></img></a>
+                        <figcaption id="text2"></figcaption></figure>
+                    </div>
+                </div>
+            </div>
+            <a id="unable" class="unable_button"><button>Unable to Decide.</button></a>
+        </div>
+        
+    </body>
+</html>

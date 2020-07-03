@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>The Moral Decision of Self-Driving Cars</title>
+        <link rel="stylesheet" href="/assets/style/style.css">
+    </head>
+    <body>
+        <script type="text/javascript">
+            window.onload = function(){
+                var person = "Unable to Decide."
+                var image = "/assets/images/unable.png"
+                var info = "It Is very difficult for us to make these decisions ourselves let alone universally agree on these decisions, so how can we expect artificial intelligence in self-driving cars to make these decisions without us?"
+                var next = "choice.html#2"
+                var back = "choice.html"
+                switch(window.location.hash.substring(1)){
+                    case "old":
+                        person = "Sparing The Old."
+                        image = "/assets/images/person_old.png"
+                        info = "It is common for people in Eastern countries to spare the elderly whereas people in Western countries are more likely to spare the young."
+                        break
+                    case "young":
+                        person = "Sparing The Young."
+                        image = "/assets/images/person_young.png"
+                        info = "It is common for people in Western countries to spare the young whereas people in Eastern countries are more likely to spare the elderly."
+                        break
+                    case "rich":
+                        person = "Sparing The Rich."
+                        image = "/assets/images/person_rich.png"
+                        info = "It is common for people in Southern countries to spare those of higher status whereas people in Eastern countries are more likely to spare those of lower status."
+                        next = "discussion.html"
+                        back = "choice.html#2"
+                        break
+                    case "poor":
+                        person = "Sparing The Poor."
+                        image = "/assets/images/person_poor.png"
+                        info = "It is common for people in Eastern countries to spare those of lower status whereas people in Southern countries are more likely to spare those of higher status."
+                        next = "discussion.html"
+                        back = "choice.html#2"
+                        break
+                }
+                document.getElementById('person').innerHTML = person;
+                document.getElementById('person_info').innerHTML = info;
+                document.getElementById('person_image').src = image;
+                document.getElementById('next').onclick = function() {
+                    document.getElementById('next').href=next; 
+                    return true;
+                };    
+                document.getElementById('back').onclick = function() {
+                    document.getElementById('back').href=back; 
+                    return true;
+                };        
+            };
+        </script>
+        <a id='back' class="btn_back"><button>Back</button></a>
+        <h1 class="choice_head" id="person"></h1>
+        <div class="choices">
+            <div class="choice_answer">
+                <img src="" id="person_image"></img>
+            </div>
+            <div class="choice_answer">
+                <p id="person_info"></p>
+            </div>
+        </div>
+        <a id="next" class="btn"><button>Next</button></a>
+    </body>
+</html>
